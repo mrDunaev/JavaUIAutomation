@@ -34,8 +34,10 @@ public class AddProductToCart
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(cartLocator));
         webDriver.findElement(cartLocator).click();
 
+        By productsInCart = By.className("at6");
+        new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(productsInCart));
         System.out.print("TEST 1:\n");
-        webDriver.findElement(By.className("at6"))
+        webDriver.findElement(productsInCart)
                 .findElements(By.xpath("./div[@class='as3']"))
                 .forEach(product -> System.out.print(product.findElement(By.className("s4a")).getText() + " "));
         System.out.println();

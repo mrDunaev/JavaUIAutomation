@@ -28,11 +28,11 @@ public class AddAndDeleteProductFromFavorites {
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(clothesLocator));
         webDriver.findElement(clothesLocator).click();
 
-        By anyClothesBrandLocator = By.xpath("//div[@class='zh4']/a[2]");
+        By anyClothesBrandLocator = By.xpath("//div[@class='z4h']/a[2]");
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(anyClothesBrandLocator));
         webDriver.findElement(anyClothesBrandLocator).click();
 
-        By heartLocator = By.xpath("//div[@class='y8h']/div[@interactive='true']/div/button");
+        By heartLocator = By.xpath("//div[@class='hy9']/div[@interactive='true']/div/button");
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(heartLocator));
         webDriver.findElement(heartLocator).click();
 
@@ -40,20 +40,24 @@ public class AddAndDeleteProductFromFavorites {
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(favoritesLocator));
         webDriver.findElement(favoritesLocator).click();
 
+        By favoritesProductsLocator = By.className("i4j");
+        new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(favoritesProductsLocator));
         System.out.print("TEST 2:\n");
-        webDriver.findElement(By.className("ij4"))
-                .findElements(By.className("yh5"))
+        webDriver.findElement(favoritesProductsLocator)
+                .findElements(By.className("y5h"))
                 .forEach(product -> System.out.print(product.findElement(By.xpath("./a/span/span")).getText() + " "));
         System.out.println();
 
-        By heartInFavoritesLocator = By.xpath("//div[@class='y8h']/div[@interactive='true']/div/button");
+        By heartInFavoritesLocator = By.xpath("//div[@class='hy9']/div[@interactive='true']/div/button");
         new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(heartInFavoritesLocator));
         webDriver.findElement(heartInFavoritesLocator).click();
 
         webDriver.navigate().refresh();
 
+        By noProductsInFavorites = By.xpath("//span[@class='eg8']");
+        new WebDriverWait(webDriver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(noProductsInFavorites));
         System.out.println("TEST 3:");
-        System.out.print(webDriver.findElement(By.xpath("//span[@class='eg8']")).getText());
+        System.out.print(webDriver.findElement(noProductsInFavorites).getText());
 
         Thread.sleep(2000);
 
