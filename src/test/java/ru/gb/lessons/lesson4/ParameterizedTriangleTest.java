@@ -1,8 +1,9 @@
-package ru.gb.lessons;
+package ru.gb.lessons.lesson4;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.gb.lessons.lesson4.Triangle;
 
 import java.util.stream.Stream;
 
