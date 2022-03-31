@@ -1,5 +1,6 @@
 package ru.gb.lessons.lesson6.pages.block;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.gb.lessons.lesson6.pages.BaseView;
@@ -12,6 +13,7 @@ public class AuthFrame extends BaseView {
         super(webDriver);
     }
 
+    @Step("Проверить, что кнопка 'Получить код' отображается на странице")
     public void checkUnableToMakeReviewWithoutAuthorization() {
         /*
         Вы рекомендовали поменять локатор на //button[.='Получить код'], но не теряется ли тогда смысл ассерта?

@@ -6,6 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogType;
+
+import static io.qameta.allure.Allure.addAttachment;
+import static io.qameta.allure.Allure.step;
 
 public class BaseTest {
     protected WebDriver webDriver;
@@ -22,6 +26,10 @@ public class BaseTest {
     @AfterEach
     void tearDown() throws InterruptedException {
         Thread.sleep(2000);
+        step("Логи браузера", () -> {
+            webDriver.manage().logs().get(LogType.BROWSER)
+                    .forEach(log -> addAttachment("logs", log.getMessage()));
+        });
         webDriver.quit();
     }
 }
